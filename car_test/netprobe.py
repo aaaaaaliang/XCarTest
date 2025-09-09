@@ -1,3 +1,5 @@
+from platform import system
+import subprocess
 import paramiko
 from typing import Optional,Tuple
 import platform
@@ -74,3 +76,31 @@ class SSHClient:
             self.client.close()
             self.client = None
 
+def ping_local(ip: str, count: int = 1, timeout: int = 3) -> Tuple[bool,str]:
+    """
+    在本机执行 ping 命令
+    :param ip: 目标 IP 地址
+    :param count: 发送次数
+    :param timeout: 超时时间 (秒)
+    return: (是否成功, 输出文本)
+    """
+
+    system = platform.system().lower()
+    if system.startswith("win"):
+        cmd = ["ping", "-n", str(count), "-w", str(timeout * 1000), ip]
+    else:
+        cmd = ["ping", "-c", str(count), "-W", str(timeout), ip]
+
+    try:
+        proc = subprocess.run(
+            cmd,
+            stdout= subprocess.PIPE,
+            stderr= subprocess.STDOUT,
+            text=True,
+            timeout = timeout+1,
+        )
+        ok = (proc.returncode == 0)
+        return ok,proc.stdout.strip()
+
+    except Exception as e:
+        return False,f"Ping 执行异常: {e}"

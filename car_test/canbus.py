@@ -2,6 +2,7 @@ import can
 import time
 
 
+
 """
 只是封装了简单的封装，可以自己在调用的时候处理收发逻辑
 """
@@ -47,3 +48,8 @@ class CanBus:
     def close(self):
         """关闭 CAN 通道"""
         self.bus.shutdown()
+
+
+
+
+

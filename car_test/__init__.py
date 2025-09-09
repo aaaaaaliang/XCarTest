@@ -1,11 +1,10 @@
 from .psu import OwonPSU
 from .canbus import CanBus
-# from .tester import PowerCanTester
-from .netprobe import SSHClient
+from .netprobe import SSHClient,ping_local
 
 __all__ = [
     "OwonPSU",
     "CanBus",
-    # "PowerCanTester"
     "SSHClient",
+    "ping_local"
 ]

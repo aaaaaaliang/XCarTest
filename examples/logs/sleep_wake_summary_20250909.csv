@@ -1,0 +1,4 @@
+ts,cycle,mode,used_random,wake_delay_s,host_first_ok_s,main_first_ok_s,backup_first_ok_s,host_all_final_ok,main_ok,backup_ok,stop_to_last_seen_s,sleep_status,sleep_total_wait_s,first_out_tx_seen_ts,notes
+2025-09-09 15:36:44,1,wake_on_boot,,,0.029,0.15,0.128,False,True,True,153.337,ASLEEP,156.357,,"{""seen_counter"": {""0x6c0"": 159, ""0x5a0"": 307, ""0x603"": 154, ""0x6c1"": 15}}"
+2025-09-09 15:42:28,2,loop,True,268.6,9.157,0.161,,False,True,False,7.952,ASLEEP,10.978,,"{""seen_counter"": {""0x6c0"": 72, ""0x6c1"": 8, ""0x5a0"": 144, ""0x603"": 72}}"
+2025-09-09 15:47:58,3,loop,True,255.0,9.302,0.163,,False,True,False,8.049,ASLEEP,11.068,,"{""seen_counter"": {""0x6c0"": 73, ""0x6c1"": 8, ""0x5a0"": 144, ""0x603"": 72}}"

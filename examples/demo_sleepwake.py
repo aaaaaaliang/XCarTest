@@ -34,7 +34,7 @@ FIRST_BOOT_STOP_WAKE_AFTER_PINGS: bool = True  # 首次上电如果发了0x795�
 
 # —— 电源/电流判据（可选） ——
 USE_PSU: bool = True                       # 是否通过电源读取电流门槛；False=无电源接口，跳过门槛判据
-PSU_COM: str = "COM5"                      # 你的电源串口
+PSU_COM: str = "COM3"                      # 你的电源串口
 PSU_BAUD: int = 115200
 PSU_VOLT_SET: float = 12.0                 # 需要的话可以上电；不想脚本管上电就把 PSU_SET_OUTPUT=False
 PSU_CURR_LIMIT_A: float = 3.0
@@ -62,6 +62,10 @@ SLEEP_SILENCE_S: float = 3.0               # 静默窗口（建议≥3×最大�
 SLEEP_MAX_WAIT_S: float = 180.0            # 最多等这么久还没静默则 TIMEOUT
 SLEEP_PREDRAIN_S: float = 0.2              # 等待前预排空接收队列
 
+
+
+# WAKE_RANDOM_ENABLED: bool = False
+# WAKE_FIXED_WAIT_S: float = 3600.0   # 1 小时
 # —— 休眠后唤醒等待（固定 or 随机） ——
 WAKE_RANDOM_ENABLED: bool = True           # True=用随机等待；False=固定等待
 WAKE_FIXED_WAIT_S: float = 60.0            # 固定等待秒数
@@ -81,7 +85,7 @@ MODULE_PROBE_IPS: List[str] = HOST_PROBE_IPS.copy()
 SSH_MAIN: Optional[str] = "192.168.1.201"  # 主模组 IP；无则设 None
 SSH_BACKUP: Optional[str] = "192.168.1.202" # 副模组 IP；无则设 None
 SSH_USER: str = os.getenv("SSH_USER", "root")
-SSH_PASS: Optional[str] = os.getenv("SSH_PASSWORD", "123456") if os.getenv("SSH_PKEY") is None else None
+SSH_PASS: Optional[str] = os.getenv("SSH_PASSWORD", "oelinux123") if os.getenv("SSH_PKEY") is None else None
 SSH_KEY:  Optional[str] = os.getenv("SSH_PKEY", None)
 SSH_PORT: int = int(os.getenv("SSH_PORT", "22"))
 
